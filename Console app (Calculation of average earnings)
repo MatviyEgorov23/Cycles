@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console_app__Calculation_of_average_earnings_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> salaries = new List<double>(); 
+            string input; 
+            Console.WriteLine("Enter the monthly salary for each employee (type 'done' when finished):"); 
+            while (true) { 
+                Console.Write("Enter salary: "); 
+                input = Console.ReadLine(); 
+                if (input.ToLower() == "done") 
+                    break; 
+                try { 
+                    double salary = Convert.ToDouble(input); 
+                    if (salary >= 0) { 
+                        salaries.Add(salary); 
+                    } 
+                    else { 
+                        Console.WriteLine("Please enter a positive salary.");
+                        Console.ReadLine();
+                    } 
+                } 
+                catch (FormatException) { 
+                    Console.WriteLine("Invalid input! Please enter a valid number.");
+                    Console.ReadLine();
+                } 
+            }
+            if (salaries.Count > 0) { 
+                double total = 0; 
+                foreach (double salary in salaries) { 
+                    total += salary; 
+                } 
+                double average = total / salaries.Count; 
+                Console.WriteLine($"\nThe average salary is: {average:F2}");
+                Console.ReadLine();
+            } 
+            else { 
+                Console.WriteLine("No salaries were entered.");
+                Console.ReadLine();
+            }
+        }
+    }
+}
