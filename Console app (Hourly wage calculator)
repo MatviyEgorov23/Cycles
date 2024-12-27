@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console_app__Hourly_wage_calculator_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                try
+                { // Запитуємо кількість відпрацьованих годин
+                  Console.Write("Enter the number of hours worked in a day: "); 
+                    double hoursWorked = Convert.ToDouble(Console.ReadLine()); 
+                    // Запитуємо розмір годинної ставки
+                    Console.Write("Enter the hourly rate: "); 
+                    double hourlyRate = Convert.ToDouble(Console.ReadLine()); 
+                    // Обчислюємо оплату за день
+                    double dailyPay = hoursWorked * hourlyRate; // Виводимо результат
+                    Console.WriteLine($"Daily pay: {dailyPay:F2}"); 
+                } 
+                catch (FormatException) { 
+                    Console.WriteLine("Invalid input! Please enter valid numbers."); 
+                } 
+                finally { 
+                    Console.WriteLine("Calculation attempt completed."); 
+                    string response = Console.ReadLine().ToLower();  
+                } 
+            }     
+        }
+    }
+}
