@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp__Graph_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the number of lines: "); 
+            if (int.TryParse(Console.ReadLine(), out int numberOfLines) && numberOfLines > 0) { 
+                for (int i = 1; i <= numberOfLines; i++) { 
+                    for (int j = 1; j <= i; j++) { 
+                        Console.Write("*"); 
+                    } 
+                    Console.WriteLine();
+                    Console.ReadLine();
+                } 
+            } 
+            else { 
+                Console.WriteLine("Invalid input! Please enter a positive integer."); 
+            }
+        }
+    }
+}
